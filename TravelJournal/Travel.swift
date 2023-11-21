@@ -11,7 +11,11 @@ struct TravelItem: Identifiable {
     let id = UUID()
     var imageUrl: String
     var name: String
-    var date: Date
+    var startDate: Date
+    var endDate: Date
     var price: Double
     var position: String
+    var stayDuration: Int {
+            Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
+        }
 }
