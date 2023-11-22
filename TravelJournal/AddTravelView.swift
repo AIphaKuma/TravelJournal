@@ -14,7 +14,7 @@ struct AddTravelView : View {
     @State private var endDate = Date()
     @State private var price: Double = 0.0
     @State private var position: String = ""
-    @Binding var travelItems: [TravelItem]
+    @ObservedObject var travelData: TravelData
 
 
 
@@ -52,7 +52,7 @@ struct AddTravelView : View {
                 
                 Button("Ajouter Voyage") {
                     let newItem = TravelItem(imageUrl: urlString, name: name, startDate: startDate, endDate: endDate, price: price, position: position)
-                    travelItems.append(newItem)
+                    travelData.items.append(newItem)
                     urlString = ""
                     name = ""
                     startDate = Date()

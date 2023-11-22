@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var travelItems: [TravelItem] = []
+    @StateObject var travelData = TravelData()
 
     var body: some View {
         TabView {
-            AddTravelView(travelItems: $travelItems)
+            AddTravelView(travelData: travelData)
                 .tabItem {
                     Label("Ajouter", systemImage: "plus.circle")
                 }
 
-            TravelLink(travelItems: $travelItems)
+            TravelLink(travelData: travelData)
                 .tabItem {
                     Label("Voyages", systemImage: "airplane.circle.fill")
                 }

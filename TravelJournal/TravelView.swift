@@ -7,18 +7,18 @@
 import SwiftUI
 
 struct TravelLink: View {
-    @Binding var travelItems: [TravelItem]
-    
+    @ObservedObject var travelData: TravelData
+
     var body: some View {
         NavigationView {
             List {
-                if travelItems.isEmpty {
+                if travelData.items.isEmpty {
                     Text("Aucun voyage n'a été ajouté.")
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                        .listRowSeparator(.hidden)
+                    
                 } else {
-                    ForEach(travelItems, id: \.id) { item in
+                    ForEach(travelData.items, id: \.id) { item in
                         NavigationLink(destination: TravelDetailsView(travelItem: item)) {
                             TravelView(travelItem: item)
                         }
@@ -35,7 +35,7 @@ struct TravelLink: View {
     }
 
     func deleteItems(at offsets: IndexSet) {
-        travelItems.remove(atOffsets: offsets)
+        travelData.items.remove(atOffsets: offsets)
     }
 }
 
@@ -75,11 +75,14 @@ struct TravelView: View {
 #Preview {
     let startDate = Calendar.current.date(from: DateComponents(year: 2022, month: 12, day: 29)) ?? Date()
     let endDate = Calendar.current.date(from: DateComponents(year: 2023, month: 1, day: 1)) ?? Date()
-    return TabView{
-        TravelLink(travelItems: .constant([TravelItem(imageUrl: "https://images.unsplash.com/photo-1562832625-795d57deb5ef?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHZveWFnZXxlbnwwfHwwfHx8MA%3D%3D", name: "Voyage 1", startDate: startDate, endDate: endDate, price: 1000, position: "New-York")]))
-        .tabItem {
-            Label("Voyages", systemImage: "airplane.circle.fill")
-        }
+    let travelData = TravelData()
+            travelData.items.append(TravelItem(imageUrl: "https://images.unsplash.com/photo-1562832625-795d57deb5ef?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHZveWFnZXxlbnwwfHwwfHx8MA%3D%3D", name: "Voyage 1", startDate: startDate, endDate: endDate, price: 1000, position: "New-York"))
+    return TabView {
+                TravelLink(travelData: travelData)
+                    .tabItem {
+                        Label("Voyages", systemImage: "airplane.circle.fill")
+                    }
+            }
     }
-}
+
 

@@ -15,6 +15,8 @@
 		B16810942B0BB6A400CC25F4 /* TravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16810932B0BB6A400CC25F4 /* TravelView.swift */; };
 		B16810962B0CBBD600CC25F4 /* AddTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16810952B0CBBD600CC25F4 /* AddTravelView.swift */; };
 		B16810982B0CEE9900CC25F4 /* TravelDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16810972B0CEE9900CC25F4 /* TravelDetailsView.swift */; };
+		B168109A2B0E521F00CC25F4 /* YelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16810992B0E521F00CC25F4 /* YelpController.swift */; };
+		B168109C2B0E5AF400CC25F4 /* YelpFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B168109B2B0E5AF400CC25F4 /* YelpFusion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		B16810932B0BB6A400CC25F4 /* TravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelView.swift; sourceTree = "<group>"; };
 		B16810952B0CBBD600CC25F4 /* AddTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelView.swift; sourceTree = "<group>"; };
 		B16810972B0CEE9900CC25F4 /* TravelDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailsView.swift; sourceTree = "<group>"; };
+		B16810992B0E521F00CC25F4 /* YelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpController.swift; sourceTree = "<group>"; };
+		B168109B2B0E5AF400CC25F4 /* YelpFusion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpFusion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				B16810952B0CBBD600CC25F4 /* AddTravelView.swift */,
 				B13510632B0BA019004F337B /* Assets.xcassets */,
 				B13510652B0BA019004F337B /* Preview Content */,
+				B16810992B0E521F00CC25F4 /* YelpController.swift */,
+				B168109B2B0E5AF400CC25F4 /* YelpFusion.swift */,
 			);
 			path = TravelJournal;
 			sourceTree = "<group>";
@@ -150,11 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16810962B0CBBD600CC25F4 /* AddTravelView.swift in Sources */,
+				B168109C2B0E5AF400CC25F4 /* YelpFusion.swift in Sources */,
 				B16810942B0BB6A400CC25F4 /* TravelView.swift in Sources */,
 				B16810922B0BB23200CC25F4 /* Travel.swift in Sources */,
 				B13510622B0BA016004F337B /* ContentView.swift in Sources */,
 				B13510602B0BA016004F337B /* TravelJournalApp.swift in Sources */,
 				B16810982B0CEE9900CC25F4 /* TravelDetailsView.swift in Sources */,
+				B168109A2B0E521F00CC25F4 /* YelpController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
