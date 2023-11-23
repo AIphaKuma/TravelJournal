@@ -16,6 +16,10 @@ struct TravelLink: View {
                     Text("Aucun voyage n'a été ajouté.")
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                        .listRowSeparator(.hidden)
+                        .background(Color("OffWhite"))
+
+
                     
                 } else {
                     ForEach(travelData.items, id: \.id) { item in
@@ -24,14 +28,16 @@ struct TravelLink: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                         .listRowSeparator(.hidden)
+                        .background(Color("OffWhite"))
                     }
                     .onDelete(perform: deleteItems)
                 }
             }
             .navigationTitle("Voyages")
             .listStyle(PlainListStyle())
-        
+            .background(Color("OffWhite"))
         }
+        .background(Color("OffWhite"))
     }
 
     func deleteItems(at offsets: IndexSet) {

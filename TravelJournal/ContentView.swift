@@ -12,17 +12,17 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
+            TravelLink(travelData: travelData)
+                .tabItem {
+                    Label("Mes Voyages", systemImage: "airplane.circle.fill")
+                }
+            
             AddTravelView(travelData: travelData)
                 .tabItem {
                     Label("Ajouter", systemImage: "plus.circle")
                 }
-
-            TravelLink(travelData: travelData)
-                .tabItem {
-                    Label("Voyages", systemImage: "airplane.circle.fill")
-                }
-            
         }
+        .tint(.pink)
     }
 }
 

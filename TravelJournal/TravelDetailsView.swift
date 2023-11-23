@@ -4,6 +4,8 @@ struct TravelDetailsView: View {
     var travelItem: TravelItem
     @State private var responseString = "Chargement..."
     @State private var businesses: [YelpBusiness] = []
+    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+
 
     var body: some View {
         ScrollView {
@@ -34,30 +36,38 @@ struct TravelDetailsView: View {
 
                     Text("Budget: \(travelItem.price, format: .currency(code: "EUR"))")
                         .font(.subheadline)
-                    List(businesses, id: \.name) { business in
-                        VStack(alignment: .leading) {
+                }
+                Group {
+                    Text("SUGGESTIONS")
+                            .font(.title)
+                            .padding([.bottom, .top], 20)
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(businesses, id: \.name) { business in
+                            VStack(alignment: .leading) {
                             AsyncImage(url: URL(string: business.imageUrl)) { image in
-                                image.resizable()
+                                    image
+                                    .resizable()                                
                             } placeholder: {
-                                ProgressView()
+                                    ProgressView()
                             }
-                            .frame(height: 100)
+                            .frame(height: 200)
 
+                            Spacer().frame(height: 10)
                             Text(business.name).font(.headline)
-                            Text("Note : \(business.rating, specifier: "%.1f")")
-                            Text("Nombre d'avis : \(business.reviewCount)")
-                            Text(business.categories.map { $0.title }.joined(separator: ", "))
+                            Text("Note : \(business.rating, specifier: "%.1f") (\(business.reviewCount))")
+                            Text(business.categories.first?.title ?? "Catégorie non disponible")
                             Text(business.location.displayAddress.joined(separator: ", "))
-                        }
-                    }
-                    .onAppear {
-                        YelpController().fetchData { newBusinesses in
-                            businesses = newBusinesses
+                            }
                         }
                     }
                 }
-                }
+            }
                 .padding(.horizontal)
+                .onAppear {
+                    YelpController().fetchData(forLocation: travelItem.position) { newBusinesses in
+                        businesses = newBusinesses
+                    }
+                }
                 
             }
         .navigationTitle(travelItem.name)

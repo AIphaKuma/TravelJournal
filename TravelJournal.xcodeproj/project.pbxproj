@@ -63,6 +63,8 @@
 		B135105E2B0BA016004F337B /* TravelJournal */ = {
 			isa = PBXGroup;
 			children = (
+				B168109B2B0E5AF400CC25F4 /* YelpFusion.swift */,
+				B16810992B0E521F00CC25F4 /* YelpController.swift */,
 				B16810912B0BB23200CC25F4 /* Travel.swift */,
 				B16810932B0BB6A400CC25F4 /* TravelView.swift */,
 				B16810972B0CEE9900CC25F4 /* TravelDetailsView.swift */,
@@ -71,8 +73,6 @@
 				B16810952B0CBBD600CC25F4 /* AddTravelView.swift */,
 				B13510632B0BA019004F337B /* Assets.xcassets */,
 				B13510652B0BA019004F337B /* Preview Content */,
-				B16810992B0E521F00CC25F4 /* YelpController.swift */,
-				B168109B2B0E5AF400CC25F4 /* YelpFusion.swift */,
 			);
 			path = TravelJournal;
 			sourceTree = "<group>";
